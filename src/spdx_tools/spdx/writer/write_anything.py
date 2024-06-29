@@ -8,6 +8,7 @@ from spdx_tools.spdx.writer.rdf import rdf_writer
 from spdx_tools.spdx.writer.tagvalue import tagvalue_writer
 from spdx_tools.spdx.writer.xml import xml_writer
 from spdx_tools.spdx.writer.yaml import yaml_writer
+from spdx_tools.spdx.writer.html import html_writer
 
 
 def write_file(document: Document, file_name: str, validate: bool = True):
@@ -22,3 +23,5 @@ def write_file(document: Document, file_name: str, validate: bool = True):
         tagvalue_writer.write_document_to_file(document, file_name, validate)
     elif output_format == FileFormat.RDF_XML:
         rdf_writer.write_document_to_file(document, file_name, validate)
+    elif output_format == FileFormat.HTML:
+        html_writer.write_document_to_file(document, file_name, validate)

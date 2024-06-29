@@ -12,6 +12,7 @@ class FileFormat(Enum):
     XML = auto()
     TAG_VALUE = auto()
     RDF_XML = auto()
+    HTML = auto()
 
 
 def file_name_to_format(file_name: str) -> FileFormat:
@@ -25,5 +26,7 @@ def file_name_to_format(file_name: str) -> FileFormat:
         return FileFormat.XML
     elif file_name.endswith(".yaml") or file_name.endswith(".yml"):
         return FileFormat.YAML
+    elif file_name.endswith(".html"):
+        return FileFormat.HTML
     else:
         raise SPDXParsingError(["Unsupported SPDX file type: " + str(file_name)])
