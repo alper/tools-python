@@ -26,8 +26,9 @@ def write_document_to_stream(
     stream.write("<html>\n")
 
     for package in document.packages:
-        stream.write(f"<h2>{package.name} ({package.version}) </h2>\n")
-        stream.write(f"<h3>{package.license_concluded}</h3>\n\n")
+        if package.license_concluded != None:
+            stream.write(f"<h2>{package.name} ({package.version}) </h2>\n")
+            stream.write(f"<h3>{package.license_concluded}</h3>\n\n")
 
     stream.write("</html>\n")
 
